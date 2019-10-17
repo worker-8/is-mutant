@@ -1,0 +1,32 @@
+{
+  "name": "fastify-fast-setup",
+  "version": "0.1.0",
+  "description": "Fastify setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "server": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worker-8/fastify-fast-setup.git"
+  },
+  "keywords": [
+    "fastify",
+    "setup"
+  ],
+  "author": "Worker-8",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/worker-8/fastify-fast-setup/issues"
+  },
+  "homepage": "https://github.com/worker-8/fastify-fast-setup#readme",
+  "dependencies": {
+    "fastify": "^2.7.0",
+    "fastify-metrics": "^4.0.5",
+    "fastify-plugin": "^1.6.0",
+    "nodemon": "^1.19.1",
+    "prom-client": "^11.5.3",
+    "save": "^2.4.0"
+  }
+}
