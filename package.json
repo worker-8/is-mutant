@@ -4,7 +4,7 @@
   "description": "Fastify setup",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "server": "nodemon ./src/index.js"
   },
   "repository": {
@@ -28,5 +28,8 @@
     "nodemon": "^1.19.1",
     "prom-client": "^11.5.3",
     "save": "^2.4.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
