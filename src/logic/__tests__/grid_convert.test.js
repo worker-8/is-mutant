@@ -1,9 +1,8 @@
 const gridConvert = require('../grid_convert');
 
 test('Correct way convert', () => {
-    const origin=["a","b","c","d"];
-    const expected = [["a"], ["b"], ["c"], ["d"]];
-
+    const origin=["abcd", "xxxx"];
+    const expected = [["a", "b", "c", "d"], ['x','x','x','x']];
     expect(gridConvert(origin)).toEqual(expected);
 });
 
