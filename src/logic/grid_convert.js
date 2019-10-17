@@ -1,7 +1,7 @@
 /**
  * grid_convert
- * @param data <Array>
- * @return <Array <Array>>
+ * @param array
+ * @returns array[array]
  */
 module.exports = (data) => {
     if(!Array.isArray(data)){
