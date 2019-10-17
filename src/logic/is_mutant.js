@@ -1,3 +1,8 @@
+/**
+ * is_mutant
+ * @param ln<String>
+ * @return boolean 
+ */
 module.exports = (ln) => {
     let flag = false;
     let safe = 0;
