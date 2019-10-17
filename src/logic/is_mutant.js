@@ -16,4 +16,4 @@ module.exports = (ln) => {
         }
     });
     return flag;
-}
+};
