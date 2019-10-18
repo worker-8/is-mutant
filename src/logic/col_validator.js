@@ -2,7 +2,7 @@ const isMutant = require('./is_mutant');
 
 /**
  * col_validator
- * @param data <Array<Array>>
+ * @param data Array
  * @return Integer
  */
 module.exports = (data) => {
@@ -14,5 +14,13 @@ module.exports = (data) => {
         }
         count += (isMutant(tmp)) ? 1 : 0;
     }
+    
     return count;
 }
+
+'ATGCGA'
+'CAGTGC'
+'TTATGT'
+'TGAAGG'
+'TCCCTA'
+'TCACTG'

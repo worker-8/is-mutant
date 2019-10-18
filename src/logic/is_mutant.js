@@ -12,7 +12,12 @@ module.exports = (ln) => {
         if (char === e) {
             char = e;
             safe += 1;
-            flag = (safe === 4);
+            
+            if (safe === 4) {
+                // console.log(ln);
+                flag = true;
+            }
+            
             return;
         } else {
             char = e;
