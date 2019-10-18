@@ -1,7 +1,8 @@
 const rowValidator = require('./row_validator');
 const colValidator = require('./col_validator');
+const obliqueValidator = require('./oblique_validator');
 
-const fnArr = [rowValidator, colValidator];
+const fnArr = [rowValidator, colValidator, obliqueValidator];
 module.exports = (data) => {
     if (!data.dna) {
         return {
