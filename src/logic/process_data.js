@@ -4,7 +4,7 @@ const obliqueValidator = require('./oblique_validator');
 
 const fnArr = [rowValidator, colValidator, obliqueValidator];
 module.exports = (data) => {
-    if (!data.dna) {
+    if (data === null) {
         return {
             code: 403,
             msg: 'NO DATA'

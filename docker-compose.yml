@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:8.0.18
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: luckystrike
+    volumes:
+      - '${PWD}/data:/var/lib/mysql'
+    ports:
+      - '3306:3306'
+  ngenx:
+    image: nginx:latest
+    ports:
+      - '80:80'
