@@ -16,11 +16,4 @@ module.exports = (data) => {
     }
     
     return count;
-}
-
-'ATGCGA'
-'CAGTGC'
-'TTATGT'
-'TGAAGG'
-'TCCCTA'
-'TCACTG'
+};

@@ -82,6 +82,21 @@ test('two gen mutant col', () => {
     expect(processData(origin).msg).toBe(expected.msg);
 });
 
+test('three gen mutant col', () => {
+    const origin = {
+        'dna': [
+            'ACGGTC',
+            'ACCTGG',
+            'AGCTTC',
+            'AGGTGG',
+            'AGGTCC',
+            'AGGGCC']
+    };
+    const expected = { 'code': 200, 'msg': 'Is Mutant' }
+    expect(processData(origin).code).toBe(expected.code);
+    expect(processData(origin).msg).toBe(expected.msg);
+});
+
 test('no gen mutant', () => {
     const origin = {
         'dna': ['ACGTAA', 'CGTTAC', 'GTACAC', 'AGCTAG', 'AGGGCC', 'AGGGCC']
