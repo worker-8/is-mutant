@@ -3,15 +3,23 @@ services:
   mysql:
     image: mysql:8.0.18
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: luckystrike
     volumes:
+      - '${PWD}/db:/docker-entrypoint-initdb.d'
       - '${PWD}/data:/var/lib/mysql'
     ports:
       - '3306:3306'
   mutant:
       image: mutant-app
       restart: always
+      environment:
+        DB_HOST: mysql
+        DB_NAME: "root"
+        DB_PASSWORD: "luckystrike"
+        DB_DATABASE: "mutant_log"
       ports:
         - 1337:1337
+      depends_on:
+        - mysql
