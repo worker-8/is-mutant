@@ -44,10 +44,3 @@ module.exports = async (fastify, opts, done) => {
 
     done();
 };
-
-/**
- * SELECT
-	(SELECT COUNT(*) FROM registry) AS total,
-	(SELECT COUNT(*) FROM registry WHERE is_mutant = TRUE) AS mutant
-FROM DUAL;
- */
