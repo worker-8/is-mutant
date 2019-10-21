@@ -29,6 +29,7 @@
     "fastify": "^2.7.0",
     "fastify-metrics": "^4.0.5",
     "fastify-plugin": "^1.6.0",
+    "mysql": "^2.17.1",
     "nodemon": "^1.19.1",
     "prom-client": "^11.5.3",
     "save": "^2.4.0"
