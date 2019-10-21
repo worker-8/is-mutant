@@ -25,7 +25,10 @@ module.exports = async (fastify, opts, done) => {
                     if (err) {
                         return response.badRequest('error db', err, reply);
                     } else {
-                        return resolve({ total: rows[0].total, mutant: rows[0].mutant });
+                        if (rows.length > 0){
+                            return resolve({ total: rows[0].total, mutant: rows[0].mutant });
+                        }
+                        return resolve({ total: 0, mutant: 0 });
                     }
                 }
             )
