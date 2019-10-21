@@ -9,7 +9,7 @@
     "docker-build": "docker build -t mutant-app .",
     "docker-run-app": "docker run -tid -p 1337:1337 mutant-app",
     "test": "jest",
-    "server": "nodemon ./src/index.js"
+    "server": "DB_HOST='127.0.0.1' DB_NAME='root' DB_PASSWORD='luckystrike' DB_DATABASE='mutant_log' nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
