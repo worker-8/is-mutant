@@ -3,14 +3,14 @@ const conn = require('./conn');
 const insert = async (data, isMutant) => {
   return await new Promise((resolve) =>
     conn.query(
-      `insert into registry (dna, is_mutant) values (?,?)`,
+      'insert into registry (dna, is_mutant) values (?,?)',
       [
         data,
         isMutant
       ],
-      function (err, rows) {
+      function (err) {
         if (err) {
-          return resolve({ status: false, err })
+          return resolve({ status: false, err });
         } else {
           return resolve({ status: true, isMutant, data });
         }
@@ -22,11 +22,11 @@ const insert = async (data, isMutant) => {
 const findByDNA = async (dna) => {
   return await new Promise((resolve) =>
     conn.query(
-      `SELECT * FROM registry WHERE dna=?`,
+      'SELECT * FROM registry WHERE dna=?',
       [dna],
       function (err, rows) {
         if (err) {
-          return resolve({ status: false, err })
+          return resolve({ status: false, err });
         } else {
           return resolve({ status: true, count: rows.length, rows });
         }
@@ -44,17 +44,17 @@ const getStats = async () => {
       null,
       function (err, rows) {
         if (err) {
-          return resolve({ status: false, err })
+          return resolve({ status: false, err });
         } else {
           return resolve({ status: true, row:rows[0] });
         }
       }
     )
   );
-}
+};
 
 module.exports = {
   insert,
   findByDNA,
   getStats
-}
+};

@@ -23,7 +23,7 @@ const responseQuestion = (data, dna, reply) => (res) => {
         ? response.mutant(data, 'done: mutant', reply)
         : response.notMutant(data, 'done: not mutant', reply);
     });
-}
+};
 
 module.exports = async (fastify, opts, done) => {
   fastify.post('/mutant', async (request, reply) => {
@@ -41,7 +41,7 @@ module.exports = async (fastify, opts, done) => {
             response.badRequest('error db', res.err, reply)
           );
         }
-        return res
+        return res;
       }).then(responseQuestion(data, dna, reply));
   });
 

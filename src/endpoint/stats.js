@@ -6,9 +6,9 @@ module.exports = async (fastify, opts, done) => {
     let stats = {
       ADN:
       {
-        "count_mutant_dna": 0,
-        "count_human_dna": 0,
-        "ratio": 0
+        'count_mutant_dna': 0,
+        'count_human_dna': 0,
+        'ratio': 0
       }
     };
 
@@ -22,11 +22,11 @@ module.exports = async (fastify, opts, done) => {
       if (res.row.total > 0) {
         stats.ADN.count_mutant_dna = res.row.mutant;
         stats.ADN.count_human_dna = res.row.total - res.row.mutant;
-        stats.ADN.ratio = (((res.row.mutant * 100) / res.row.total) / 100).toFixed(2)
+        stats.ADN.ratio = (((res.row.mutant * 100) / res.row.total) / 100).toFixed(2);
       }
 
       return response.ok(res, 'Done', reply);
-    })
+    });
   });
 
   done();
