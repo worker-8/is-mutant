@@ -1,7 +1,7 @@
 const prometheus = require("./plugins/prometheus");
 const basics = require('./endpoint/basics');
 const mutant = require('./endpoint/mutant');
-const status = require('./endpoint/status');
+const stats = require('./endpoint/stats');
 const fastify = require('fastify')({
     logger: true
 });
@@ -9,7 +9,7 @@ const fastify = require('fastify')({
 fastify.register(prometheus);
 fastify.register(basics);
 fastify.register(mutant);
-fastify.register(status);
+fastify.register(stats);
 
 fastify.listen(1337, '0.0.0.0', async (err, address) => {
     if (err) throw err
