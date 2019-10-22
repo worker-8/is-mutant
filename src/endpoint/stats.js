@@ -25,7 +25,7 @@ module.exports = async (fastify, opts, done) => {
         stats.ADN.ratio = (((res.row.mutant * 100) / res.row.total) / 100).toFixed(2);
       }
 
-      return response.ok(res, 'Done', reply);
+      return response.ok(stats, 'Done', reply);
     });
   });
 

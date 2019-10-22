@@ -69,6 +69,75 @@ if you do it this way the service is available in `localhost: 1337` and you don'
 
 ## Endpoints
 
-### mutant
+|path|/mutant|
+|--|--|
+|method|post|
+|params| json|
 
-### stats
+request
+
+```JSON
+{
+  'dna': ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
+}
+```
+
+response OK - mutant
+
+```JSON
+{
+  "code": 200,
+  "values": {
+    "dna": [
+      "ATGCGA",
+      "CAGTGC",
+      "TTATGT",
+      "AGAAGG",
+      "CCCCTA",
+      "TCACTG"
+    ]
+  },
+  "message": "db: mutant"
+}
+```
+
+response OK - no mutant
+
+```JSON
+{
+  "code": 403,
+  "values": {
+    "dna": [
+      "ATCCGA",
+      "CAGTGC",
+      "TCATGT",
+      "AGAACG",
+      "GTCCTA",
+      "TCACTG"
+    ]
+  },
+  "message": "done: not mutant"
+}
+```
+
+response NOK - DB Issue
+
+```JSON
+{
+  "code": 400,
+  "values": "error db",
+  "message": {
+    "errno": "ECONNREFUSED",
+    "code": "ECONNREFUSED",
+    "syscall": "connect",
+    "address": "127.0.0.1",
+    "port": 3306,
+    "fatal": true
+  }
+}
+```
+
+|path|/stats|
+|--|--|
+|method|get|
+|params| N/A|
