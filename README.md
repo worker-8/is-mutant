@@ -72,13 +72,13 @@ if you do it this way the service is available in `localhost: 1337` and you don'
 |path|/mutant|
 |--|--|
 |method|post|
-|params| json|
+|params| {dna : []} |
 
 request
 
 ```JSON
 {
-  'dna': ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
+  "dna": ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
 }
 ```
 
@@ -141,3 +141,36 @@ response NOK - DB Issue
 |--|--|
 |method|get|
 |params| N/A|
+
+Response OK
+
+```JSON
+{
+  "code": 200,
+  "values": {
+    "ADN": {
+      "count_mutant_dna": 2,
+      "count_human_dna": 1,
+      "ratio": "0.67"
+    }
+  },
+  "message": "Done"
+}
+```
+
+response NOK - DB Issue
+
+```JSON
+{
+  "code": 400,
+  "values": "error db",
+  "message": {
+    "errno": "ECONNREFUSED",
+    "code": "ECONNREFUSED",
+    "syscall": "connect",
+    "address": "127.0.0.1",
+    "port": 3306,
+    "fatal": true
+  }
+}
+```
