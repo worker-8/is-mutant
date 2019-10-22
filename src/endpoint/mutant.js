@@ -1,38 +1,49 @@
-// “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
 const processData = require('../logic/process_data.js');
 const response = require('../response');
-const conn = require('../source/conn');
+const registry = require('../source/registry');
+
+const responseQuestion = (data, dna, reply) => (res) => {
+  if (res.count >= 1) {
+    return (res.rows[0].is_mutant)
+      ? response.mutant(data, 'db: mutant', reply)
+      : response.notMutant(data, 'db: not mutant', reply);
+  }
+
+  const processedData = processData(data);
+  registry
+    .insert(dna, processedData.code === 200)
+    .then(res => {
+      if (!res.status) {
+        return Promise.reject(
+          response.badRequest('error db', res.err, reply)
+        );
+      }
+
+      return (res.isMutant)
+        ? response.mutant(data, 'done: mutant', reply)
+        : response.notMutant(data, 'done: not mutant', reply);
+    });
+}
 
 module.exports = async (fastify, opts, done) => {
-    fastify.post('/mutant', async (request, reply) => {
-        const data = JSON.parse(request.body);
-        if (data === null) {
-            response.notMutant(null, 'error', reply);
+  fastify.post('/mutant', async (request, reply) => {
+    const data = JSON.parse(request.body);
+    if (data === null) {
+      response.notMutant(null, 'error', reply);
+    }
+    const dna = data.dna.join('-');
+
+    return registry
+      .findByDNA(dna)
+      .then(res => {
+        if (!res.status) {
+          return Promise.reject(
+            response.badRequest('error db', res.err, reply)
+          );
         }
-        let sql = `INSERT INTO registry (dna, is_mutant) VALUES (?,?)`;
-        const processedData = processData(data);
+        return res
+      }).then(responseQuestion(data, dna, reply));
+  });
 
-        let query = await new Promise((resolve) =>
-            conn.query(
-                sql,
-                [
-                    request.body,
-                    (processedData.code === 200) ? 1 : 0
-                ],
-                function (err, rows) {
-                    if (err) {
-                        return response.badRequest('error db', err, reply);
-                    } else {
-                        return resolve({ dna: request.body, is_mutant: (processData.code === 200) ? 1 : 0 });
-                    }
-                }
-            )
-        );
-
-        return (processedData.code === 200)
-            ? response.mutant(data, 'done: mutant', reply)
-            : response.notMutant(data, 'done: not mutant', reply);
-    });
-
-    done();
+  done();
 };
