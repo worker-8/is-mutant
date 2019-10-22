@@ -174,3 +174,22 @@ response NOK - DB Issue
   }
 }
 ```
+
+## Flowchart /mutant
+
+![](https://github.com/worker-8/is-mutant/blob/master/fig1.jpg?raw=true)
+
+## Architecture
+
+![](https://github.com/worker-8/is-mutant/blob/master/fig2.jpg?raw=true)
+
+## Coverage
+
+File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------|----------|----------|----------|----------|-------------------|
+All files             |      100 |      100 |      100 |      100 |                   |
+ col_validator.js     |      100 |      100 |      100 |      100 |                   |
+ is_mutant.js         |      100 |      100 |      100 |      100 |                   |
+ oblique_validator.js |      100 |      100 |      100 |      100 |                   |
+ process_data.js      |      100 |      100 |      100 |      100 |                   |
+ row_validator.js     |      100 |      100 |      100 |      100 |                   |
