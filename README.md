@@ -66,3 +66,9 @@ docker-compose up -d
 ```
 
 if you do it this way the service is available in `localhost: 1337` and you don't need to configure anything, this includes the database.
+
+## Endpoints
+
+### mutant
+
+### stats

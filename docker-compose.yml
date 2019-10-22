@@ -12,7 +12,7 @@ services:
     ports:
       - '3306:3306'
   mutant:
-      image: mutant-app
+      build: .
       restart: always
       environment:
         DB_HOST: mysql
@@ -20,6 +20,6 @@ services:
         DB_PASSWORD: "luckystrike"
         DB_DATABASE: "mutant_log"
       ports:
-        - 1337:1337
+        - 80:1337
       depends_on:
         - mysql
