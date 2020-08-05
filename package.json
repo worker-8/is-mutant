@@ -28,7 +28,7 @@
   "homepage": "https://github.com/worker-8/fastify-fast-setup#readme",
   "dependencies": {
     "eslint": "^6.5.1",
-    "fastify": "^2.7.0",
+    "fastify": "^2.15.1",
     "fastify-metrics": "^4.0.5",
     "fastify-plugin": "^1.6.0",
     "mysql": "^2.17.1",
